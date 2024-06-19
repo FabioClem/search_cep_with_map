@@ -1,4 +1,3 @@
-import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_clean/bloc/main_bloc.dart';
 import 'package:flutter_application_clean/core/errors/response_errors.dart';

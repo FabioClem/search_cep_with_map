@@ -99,17 +99,32 @@ class _HomePageState extends State<HomePage> {
                                 ),
                                 AddressCardWidget(cepModel: state.cepModel!),
                                 const SizedBox(height: 20),
-                                SizedBox(
-                                  width: double.infinity,
-                                  height: 350,
-                                  child: MapWidget(
-                                    latitude: double.parse(state.cepModel!
-                                        .location.coordinates.latitude),
-                                    longitude: double.parse(state.cepModel!
-                                        .location.coordinates.longitude),
-                                    zoom: 10,
+                                if (state.cepModel!.location.coordinates
+                                            .latitude !=
+                                        null &&
+                                    state.cepModel!.location.coordinates
+                                            .longitude !=
+                                        null) ...[
+                                  const Text(
+                                    'Localização:',
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
-                                )
+                                  const SizedBox(height: 20),
+                                  SizedBox(
+                                    width: double.infinity,
+                                    height: 350,
+                                    child: MapWidget(
+                                      latitude: double.parse(state.cepModel!
+                                          .location.coordinates.latitude!),
+                                      longitude: double.parse(state.cepModel!
+                                          .location.coordinates.longitude!),
+                                      zoom: 10,
+                                    ),
+                                  ),
+                                ],
                               ] else if (state is GetCepErrorState) ...[
                                 SizedBox(
                                   width: double.infinity,
